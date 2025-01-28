@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <!-- Title of the page -->
+    <title>{{ title }}</title>
+
+    <!-- Favicon icon for the website -->
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon">
+
+    <!-- Meta tags for mobile responsiveness and proper character encoding -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <meta charset="utf-8">
+
+    <!-- SEO Optimization: keywords and description for better search engine ranking -->
+    <meta name="keywords" content="Agro Harvest, Responsive web template, Bootstrap Web Templates, Flat Web Templates, Mobile Compatible web template, Smartphone Web Design, Free Web Designs">
+    <meta name="description" content="Agro Harvest is a responsive web template designed for agricultural projects. Offers farm management tools and crop forecasting.">
+
+    <!-- Open Graph meta tags for social media sharing -->
+    <meta property="og:title" content="{{ title }}">
+    <meta property="og:description" content="Agro Harvest is a responsive web template designed for agricultural projects.">
+    <meta property="og:image" content="{{ url_for('static', filename='images/og-image.jpg') }}">
+    <meta property="og:url" content="{{ url_for('index') }}">
+
+    <!-- Mobile web app capabilities (for iOS and Android) -->
+    <meta name="apple-mobile-web-app-title" content="{{ title }}">
+    <meta name="theme-color" content="#4CAF50"> <!-- Green theme color for the website -->
+
+    <!-- Stylesheets and external libraries (if any) -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-pzjw8f+ua7Kw1TIq0g0L3uZMQg8iY0x6c5yfD6tX+Ydf9P0H6qt/a8rt5YQW9XBj" crossorigin="anonymous">
+
+    <link href="{{ url_for('static', filename='css/font-awesome.min.css') }}" rel="stylesheet"> <!-- fontawesome css -->
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css" /> <!-- custom css -->
+
+    <style>
+        html {
+            font-size: 1rem; /* Default font size */
+        }
+    
+        /* Mobile devices and small screens (up to 575px) */
+        @media (min-width: 576px) {
+            html {
+                font-size: 1.25rem;
+            }
+        }
+    
+        /* Medium devices (from 768px to 991px) */
+        @media (min-width: 768px) {
+            html {
+                font-size: 1.5rem;
+            }
+    
+            h1 {
+                font-size: 1.3rem;
+            }
+    
+            h2 {
+                font-size: 1.2rem;
+            }
+        }
+    
+        /* Large devices (from 992px to 1199px) */
+        @media (min-width: 992px) {
+            html {
+                font-size: 1.75rem;
+            }
+    
+            h1 {
+                font-size: 1.5rem;
+            }
+    
+            h2 {
+                font-size: 1.4rem;
+            }
+        }
+    
+        /* Extra-large devices (1200px and above) */
+        @media (min-width: 1200px) {
+            html {
+                font-size: 2rem;
+            }
+    
+            h1 {
+                font-size: 1.7rem;
+            }
+    
+            h2 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+
+    <!-- Loading jQuery (version 3.6.0) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEJX3Q4APJZTGT2P3bCw0u5ARf1M9bXj5cD7r1V13ryKh-2tB38XgUGXB3Jck" crossorigin="anonymous"></script>
+
+    <!-- Loading Bootstrap JS (version 5.3.0) -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gyb7AQ47zXzXrdhJ97W3sZ4qxvPYT3Btg14l0f7QqDmb5f7vJp" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0g0L3uZMQg8iY0x6c5yfD6tX+Ydf9P0H6qt/a8rt5YQW9XBj" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+        <a class="navbar-brand" href="{{ url_for('home') }}">
+            <img src="{{ url_for('static', filename='images/logo.jpg') }}" style="width: 90px; height: 55px" alt="Logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ url_for('home') }}">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('crop_recommend') }}">Crop</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('fertilizer_recommendation') }}">Fertilizer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('disease_prediction') }}">Disease</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+{% block body %} {% endblock %}
+
+<!-- footer -->
+<footer class="text-center py-5">
+    <div class="container py-md-3">
+        <h2 class="logo2 text-center">
+            <a href="{{ url_for('home') }}">SMARTCORP</a>
+        </h2>
+        <div class="contact-left-footer mt-4">
+        </div>
+
+        <div class="w3l-copy text-center">
+            <p class="text-da">An Environmental Intelligence Startup</p>
+        </div>
+
+        <div class="homelogo">
+            <p>Made with ❤️ by عبد السلام</p>
+            <p>&copy; Copyright 2021 عبد السلام</p>
+        </div>
+    </div>
+</footer>
+
+<!-- move top icon -->
+<a href="#home" class="move-top text-center">
+    <span class="fa fa-arrow-up" aria-hidden="true"></span>
+</a>
+
+<style>
+    .move-top {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px;
+        border-radius: 50%;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        font-size: 24px;
+        transition: background-color 0.3s;
+    }
+
+    .move-top:hover {
+        background-color: #0056b3;
+    }
+
+    .move-top span {
+        display: inline-block;
+        line-height: 24px;
+    }
+</style>
+
+</body>
+
+</html>

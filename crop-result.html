@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+<style>
+  .container {
+    margin-top: 12rem;
+  }
+
+  .card-body {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  h1 {
+    font-size: 2rem;
+    color: #333;
+  }
+
+  i {
+    color: #28a745;
+  }
+</style>
+
+<!-- Container to display the prediction -->
+<div class="container py-2 mx-auto my-50 h-10">
+  <div class="row">
+    <div class="col-sm py-2 py-md-3">
+      <div class="card card-body" style="justify-content: center;">
+        <h1 class="text-center"><b>You should grow <i>{{ prediction }}</i> in your farm</b></h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

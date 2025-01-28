@@ -1,0 +1,90 @@
+{% extends 'layout.html' %}
+{% block body %}
+
+<!-- Form Section -->
+<div
+  style="width: 350px; height: auto; margin: 0px auto; color: black; border-radius: 25px; padding: 10px 10px; background-color: #f8f9fa;"
+>
+  <form method="POST" action="{{ url_for('fert_recommend') }}">
+    
+    <div class="form-group">
+      <label for="state" style="font-size: 17px"><b>State</b></label>
+      <select
+        id="state"
+        name="stt"
+        class="form-control"
+        style="font-weight: bold; color: black;"
+        required
+      >
+        <!-- Options will be populated by JavaScript -->
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="city" style="font-size: 17px"><b>City</b></label>
+      <select
+        id="city"
+        name="city"
+        class="form-control"
+        style="font-weight: bold; color: black;"
+        required
+      >
+        <!-- Options will be populated by JavaScript -->
+      </select>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <button
+        type="submit"
+        class="btn btn-info"
+        style="color: black; font-weight: bold; width: 130px; height: 50px; border-radius: 12px; font-size: 21px;"
+      >
+        Predict
+      </button>
+    </div>
+
+  </form>
+</div>
+
+<script type="text/javascript">
+  // Example JavaScript function to populate the states and cities
+  function print_state(stateElementId) {
+    // Example data, this should be dynamically generated or fetched
+    var states = ['Algeria', 'Egypt', 'Morocco'];
+    var cities = {
+      'Algeria': ['Algiers', 'Oran', 'Constantine'],
+      'Egypt': ['Cairo', 'Alexandria', 'Giza'],
+      'Morocco': ['Casablanca', 'Rabat', 'Marrakech']
+    };
+
+    // Populate states dropdown
+    var stateSelect = document.getElementById(stateElementId);
+    states.forEach(function(state) {
+      var option = document.createElement('option');
+      option.value = state;
+      option.innerHTML = state;
+      stateSelect.appendChild(option);
+    });
+
+    // When state is selected, update the cities dropdown
+    stateSelect.addEventListener('change', function() {
+      var selectedState = stateSelect.value;
+      var citySelect = document.getElementById('city');
+      citySelect.innerHTML = ''; // Clear previous cities
+
+      if (selectedState && cities[selectedState]) {
+        cities[selectedState].forEach(function(city) {
+          var option = document.createElement('option');
+          option.value = city;
+          option.innerHTML = city;
+          citySelect.appendChild(option);
+        });
+      }
+    });
+  }
+
+  // Call the function to fill the state dropdown
+  print_state('state');
+</script>
+
+{% endblock %}
